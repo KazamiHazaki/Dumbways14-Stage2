@@ -153,6 +153,34 @@ setelah  pengaturan selesai di isi semua maka VPS bisa di buat dengan menekan to
 ![image](https://user-images.githubusercontent.com/56806850/204806844-407e0914-0d88-446c-9b2b-bf9e57968f25.png)
 
 
-selanjutnya buat VPS untuk gateway Nginx 
+selanjutnya buat VPS untuk gateway Nginx sama dengan cara pembuatan server web app 
+
+samakan jaringan server dengan server web app
+
+![image](https://user-images.githubusercontent.com/56806850/204825445-f412701c-e6bf-45df-bdc1-8ac5642ae703.png)
+
+
+dan 2 server sudah selesai di setup dengan menggunakan custom VPC dan subnet jaringan yg sama 
+
+![image](https://user-images.githubusercontent.com/56806850/204826317-363b9f17-5bda-4126-ab01-c8d5193ab8bc.png)
+
+![image](https://user-images.githubusercontent.com/56806850/204826384-95a83443-d020-4d32-b22f-c7cc03c530b1.png)
+
+
+setelah installasi VPS selesai maka untuk menghubungkan vps dengan SSH yang sudah di buat saat pertama kali tadi. menggunakan SSH dumbways-key.pem
+
+dengan menggunakan 
+
+```shell
+sudo ssh -i "dumbways-key.pem" ubuntu@<IP SERVER>
+```
+Ip server disesuaikan dengan IP public yg sudah di buat pada VPS tersebut.
+
+
+Install web apps dumbflix
+
+
+
+Install Nginx
 
 
