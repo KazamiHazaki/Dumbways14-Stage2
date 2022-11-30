@@ -179,7 +179,30 @@ Ip server disesuaikan dengan IP public yg sudah di buat pada VPS tersebut.
 
 Install web apps dumbflix
 
+```shell
+curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get install -y nodejs
+```
 
+![image](https://user-images.githubusercontent.com/56806850/204851182-acc8a1a4-fef1-49b1-b5e3-2fd0a529f756.png)
+
+![image](https://user-images.githubusercontent.com/56806850/204851324-b44210e4-3434-43f6-93a3-6edb924896ae.png)
+
+
+
+lalu pastikan dengan cek versi NodeJS dan NPM
+lalu clone repository git 
+
+```shell
+git clone https://github.com/dumbwaysdev/dumbflix-frontend.git
+```
+
+setelah clone selesai masuk ke direktori tersebut dan gunakan `npm install`
+
+![image](https://user-images.githubusercontent.com/56806850/204851424-a815b83c-ebd8-4a01-992b-21534f1d1129.png)
+
+lalu kita test dengan `npm run start`
 
 Install Nginx
 
