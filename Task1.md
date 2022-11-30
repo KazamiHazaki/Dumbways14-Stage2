@@ -36,7 +36,7 @@ kemudian pasang pada vpc dumbflix-A
 
 maka internet gateway sudah terhubung dengan VPC dumbflix-A dengan IP range 10.0.0.0/16
 
-kemudian kita buat subneting A dan Subnetting B
+kemudian kita buat subneting A
 
 ![image](https://user-images.githubusercontent.com/56806850/204795799-0bd1afe5-6c41-4840-9587-ec9a24e40ea4.png)
 
@@ -49,9 +49,6 @@ kemudian isi subnet pertama dengan format seperti berikut
 ![image](https://user-images.githubusercontent.com/56806850/204796092-394c7c81-0deb-49e2-a4d2-58579feb6168.png)
 
 
-dan subnet ke 2 seperti berikut setelah itu create subnet
-
-![image](https://user-images.githubusercontent.com/56806850/204796338-795e9964-67a7-4aa0-ab94-cd23104f22bb.png)
 
 
 setelah itu kita buat Route tablesnya dengan memilih VPC dumbflix-A
@@ -68,15 +65,8 @@ setelah di buat route tablenya kita edit terlebih dahulu.
 
 dan centang subnet-A
 
-![image](https://user-images.githubusercontent.com/56806850/204796877-17a0fcf7-76db-4351-b613-c499932c0ac2.png)
+![image](https://user-images.githubusercontent.com/56806850/204822872-3a4ea4cf-bd2d-43a9-8f1e-205c762c3f9c.png)
 
-kemudian kembali lagi ke route table dan buat route table b
-
-![image](https://user-images.githubusercontent.com/56806850/204797029-15da21cb-9439-43a1-a300-457c0f119d10.png)
-
-dan centang route table b pada assosiasi route table 
-
-![image](https://user-images.githubusercontent.com/56806850/204797171-5fc2375a-ed5b-4c66-8957-742d61d01492.png)
 
 kemudian buat route table antara gateway dengan subnet 
 
@@ -89,7 +79,7 @@ piih target internet gateway yg sudah di buat dan pilih dumbflix-a-internetgatew
 ![image](https://user-images.githubusercontent.com/56806850/204797917-c3286c95-5436-441f-85f8-1cb06b47b7d7.png)
 
 
-jika sudah di tambahkan maka route table pada subnet a akan seperti berikut, artinya subnet-A sudah terhubung dengan gateway internat dan menjadi ip public.
+jika sudah di tambahkan maka route table pada subnet a akan seperti berikut, artinya subnet-A sudah terhubung dengan gateway internet dan menjadi ip public.
 
 ![image](https://user-images.githubusercontent.com/56806850/204798533-fb50614c-268a-42da-8562-bfc8055ea7d1.png)
 
@@ -163,5 +153,6 @@ setelah  pengaturan selesai di isi semua maka VPS bisa di buat dengan menekan to
 ![image](https://user-images.githubusercontent.com/56806850/204806844-407e0914-0d88-446c-9b2b-bf9e57968f25.png)
 
 
+selanjutnya buat VPS untuk gateway Nginx 
 
 
