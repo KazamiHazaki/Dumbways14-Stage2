@@ -204,6 +204,22 @@ setelah clone selesai masuk ke direktori tersebut dan gunakan `npm install`
 
 lalu kita test dengan `npm run start`
 
+jika sudah muncul seperti ini maka web sudah bisa di akses melalui IP tersebut.tetapi sebelum  membuka web tersebut. karena port 3000 belum di buka maka ubah pengaturan pada AWS dengan menambahkan port 3000 pada firewalll vps
+
+![image](https://user-images.githubusercontent.com/56806850/204859170-cbf6fcad-3f7e-4a0c-8c60-277b560fa888.png)
+
+
+Membuka port pada AWS  klik pada sercurity groups lalu edit inbounds rules pada bawah kanan
+![image](https://user-images.githubusercontent.com/56806850/204860043-fde2b59c-6433-4990-a9b5-b423a4183b3c.png)
+
+![image](https://user-images.githubusercontent.com/56806850/204860272-ff2bdb72-e744-424d-a9b2-22c5be09edd3.png)
+
+tambahkan custom TCP dan port 3000 lalu gunakan IP 0.0.0.0/0
+
+![image](https://user-images.githubusercontent.com/56806850/204860469-db5e4420-1b73-4432-bb7d-bd546dfc797c.png)
+
+
+
 Install Nginx
 
 
