@@ -423,6 +423,16 @@ lalu jika ingin memperpanjang sertifikat secara otomatis gunakan command
  ```shell
  sudo certbot renew --dry-run
  ```
+ ![image](https://user-images.githubusercontent.com/56806850/205090278-4a3d3987-0a76-4015-b5f9-b0456adfe8da.png)
+
  
  
+ <h2> Challange <h2/>
+ 
+<h3> HTTPS WILDCARD <h3/>
+ 
+ penggunaan wildcard cukup simple, tambahkan simbol `*` pada name DNS record
+ 
+ ![image](https://user-images.githubusercontent.com/56806850/205090856-caf9abc3-ea5b-4b5a-a54b-da1dd3fd2689.png)
+
  
