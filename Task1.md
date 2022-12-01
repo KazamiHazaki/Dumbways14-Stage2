@@ -218,6 +218,63 @@ tambahkan custom TCP dan port 3000 lalu gunakan IP 0.0.0.0/0
 
 ![image](https://user-images.githubusercontent.com/56806850/204860469-db5e4420-1b73-4432-bb7d-bd546dfc797c.png)
 
+kemudian sesudah web app bisa di jalankan install pm2  
+
+```shell
+npm install pm2 -g
+```
+
+![image](https://user-images.githubusercontent.com/56806850/204942521-b5b0cff0-2fd1-4f3a-8aaa-46bdcfdfd5b1.png)
+
+gunakan command berikut
+
+```shell
+sudo npm2 start "npm run start" --name dumbflix
+```
+
+![image](https://user-images.githubusercontent.com/56806850/204943195-690f23b1-d2dd-4906-b496-a273ae0f0bdb.png)
+
+
+dan karena sudah berjalan di background web-app dumbflix makaa website sudah bisa langsung di akses menggunakan IP public server 
+
+![image](https://user-images.githubusercontent.com/56806850/204944225-b0512f32-1c25-423f-b3da-d3bc3c7875f7.png)
+
+![image](https://user-images.githubusercontent.com/56806850/204944147-bfbf88e2-8316-43c3-a241-5b2fd6e2d84b.png)
+
+
+kemudian install database mysql 
+
+```shell
+sudo apt install mysql-server
+```
+
+![image](https://user-images.githubusercontent.com/56806850/204944425-142a2397-6492-456c-8af9-2984e5f49e74.png)
+
+
+kemudian jalankan service mysql
+
+```shell
+sudo systemctl status mysql.service
+```
+
+
+![image](https://user-images.githubusercontent.com/56806850/204946257-efc466ac-c641-445a-9e74-0fcb29c4b88b.png)
+
+
+setelah installasi jalankan `mysql_secure_installation` untuk mengamankan mysql agar ketika mengakases mysql menggunakan password, pilih sesuai dengan kombinasi password minimal medium
+
+![image](https://user-images.githubusercontent.com/56806850/204948358-3cccf4ff-ed13-4c84-a4bc-549462a021be.png)
+
+
+ketika masuk ke secure installation maka akan di tanyakan  unntuk menghapus user anonymous dan database test
+ketik `Y` saja kecuali untu root login remotly
+
+
+untuk memudahkan migrasi database nodeJS ke mysql kita gunakan squelize, install terlebih dahuli sequelize
+
+```shell
+sudo npm install --save sequelize-cli
+```
 
 
 Install Nginx
