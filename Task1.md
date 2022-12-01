@@ -381,3 +381,44 @@ lalu untuk backend reverse proxy kita tambahkan pada file yg sama dan tambahkan 
 
 
 
+<h1>***Menginstall SSL pada Web server*** <h1/>
+ 
+ kita menggunakan certbort untuk menginstal SSL pada webserver
+ikuti instruksi pada certbot 
+ 
+ https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal
+ 
+ pertama remove certbot bawaan pada ubuntu, lalu install clasic certbot dan atur symbolink ke certbort direktori
+ 
+ ```shell
+ apt remove certbot
+ sudo snap install --classic certbot
+ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+ ```
+ ![image](https://user-images.githubusercontent.com/56806850/205088874-eb1ab821-77eb-4e1e-92d6-239b7b70110a.png)
+
+ setelah itu install sertifikasi pada nginx secara otomatis menggunakan 
+ 
+ ```shell
+ sudo certbot --nginx
+ ```
+
+ ![image](https://user-images.githubusercontent.com/56806850/205088923-cfc374cd-a971-4898-84e0-cb4ca405b409.png)
+
+ kemudian pada saat install sertifikat akan diminta email dan menyetujui persetujuan pelayanan, domain yg akan di beri sertifikat SSL. 
+ 
+ kemudian setelah selesai akan muncul seperti berikut 
+ 
+ ![image](https://user-images.githubusercontent.com/56806850/205089485-c6353007-0482-40dd-9ea2-107041945a2a.png)
+
+ lalu test website dengan menggunakan HTTTPS
+ 
+ 
+ ![image](https://user-images.githubusercontent.com/56806850/205089643-52320f14-4af6-4b0b-bf84-4dc7c519d804.png)
+![image](https://user-images.githubusercontent.com/56806850/205089691-1e56a4a3-8a11-4657-a688-987e597cce41.png)
+
+ 
+ 
+ 
+ 
+ 
