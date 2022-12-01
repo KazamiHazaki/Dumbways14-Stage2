@@ -275,7 +275,13 @@ untuk memudahkan migrasi database nodeJS ke mysql kita gunakan squelize, install
 ```shell
 sudo npm install --save sequelize-cli
 ```
+kemudian install manual driver database mysql
 
+```shell
+sudo npm install --save mysql2
+```
+
+lalu setelah itu 
 
 Install Nginx
 
