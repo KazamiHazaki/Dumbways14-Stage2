@@ -361,3 +361,16 @@ lalu test kembali dan ngnix konfigurasi berhasil di settings
 ![image](https://user-images.githubusercontent.com/56806850/205072680-8efea832-919a-41b3-a913-9d7dff415357.png)
 
 
+setelah configurasi nginx selesai, buka firewall HTTP dan HTTPS pada server nginx
+
+![image](https://user-images.githubusercontent.com/56806850/205079877-57e8dd50-f254-4179-8961-8b9bbbc7f18d.png)
+
+lalu tambahkan IP nginx ke dns record dengan type record A, tambahkan 2 untuk topdomain.  `aziz` dan `api.aziz`
+
+![image](https://user-images.githubusercontent.com/56806850/205080267-903910a3-8c56-4d5e-b998-518579c6473d.png)
+
+
+
+
+
+
