@@ -370,6 +370,13 @@ lalu tambahkan IP nginx ke dns record dengan type record A, tambahkan 2 untuk to
 ![image](https://user-images.githubusercontent.com/56806850/205080267-903910a3-8c56-4d5e-b998-518579c6473d.png)
 
 
+kemudian di restart nginx nya dan buka alamat addres dengan menggunakan HTTP 
+
+![image](https://user-images.githubusercontent.com/56806850/205080569-bb52548a-6b1c-4f6f-930a-61e1f9841ce1.png)
+
+lalu untuk backend reverse proxy kita tambahkan pada file yg sama dan tambahkan IP dan port backend web-app
+
+![image](https://user-images.githubusercontent.com/56806850/205084269-c252e811-1691-48e3-ba4f-a420dfb83b95.png)
 
 
 
