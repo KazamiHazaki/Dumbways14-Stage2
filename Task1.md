@@ -418,7 +418,11 @@ ikuti instruksi pada certbot
 ![image](https://user-images.githubusercontent.com/56806850/205089691-1e56a4a3-8a11-4657-a688-987e597cce41.png)
 
  
+lalu jika ingin memperpanjang sertifikat secara otomatis gunakan command 
  
+ ```shell
+ sudo certbot renew --dry-run
+ ```
  
  
  
