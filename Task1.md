@@ -283,6 +283,32 @@ sudo npm install --save mysql2
 
 lalu setelah itu 
 
+
+inisialisasi folder dengan command sequalize 
+
+```shell
+npx sequalize-cli init
+```
+
+kemudian atur pada config.json terletak pada folder config isi username dan password sesuai user yg akan di gunakan
+
+![image](https://user-images.githubusercontent.com/56806850/204979574-936b93f9-4d93-4442-a22b-93cc4b3a427f.png)
+
+
+lalu buat database terlebih dahulu 
+
+![image](https://user-images.githubusercontent.com/56806850/204979615-19d72fd7-3367-4472-9f61-080efb8733ed.png)
+
+setelah database sudah di buat database yg ada pada web-app bisa di migrasi ke database server menggunakan db:migrate sequalize
+
+```shell
+npx sequalize-cli db:migrate
+```
+![image](https://user-images.githubusercontent.com/56806850/204979793-13d1dc57-439d-4e60-9415-3e1ccd4ae083.png)
+
+
+
+
 Install Nginx
 
 
