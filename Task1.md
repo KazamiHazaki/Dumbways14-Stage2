@@ -312,3 +312,52 @@ npx sequalize-cli db:migrate
 Install Nginx
 
 
+pertama jalan kan 
+
+```shell
+sudo apt update &&& sudo apt upgrade
+```
+setelah itu instann nginx server
+
+
+```shell
+sudo apt install nginx
+```
+![image](https://user-images.githubusercontent.com/56806850/205067831-30486210-a8b8-4c31-8130-2ff77c9279ff.png)
+
+cek kembali nginx sudah terinstall atau belum 
+
+![image](https://user-images.githubusercontent.com/56806850/205068009-b4226b4d-3293-49df-869a-9d78f3da45f7.png)
+
+lalu tambahkan reverse proxy pada conf nginx
+
+dengan caara membuat direktori baru pada /etc/nginx
+
+lalu buat file type .conf
+
+dan isi dengan format berikut 
+
+![image](https://user-images.githubusercontent.com/56806850/205072243-8d99a525-c024-49c5-86ed-e239c345610a.png)
+
+kemudian tambahkan pada ngnix conf
+tambahkan 
+
+```shell
+include /etc/nginx/dumbflix/*;
+```
+
+ketika di test akan muncul seperti ini 
+
+![image](https://user-images.githubusercontent.com/56806850/205072349-c5341aa2-a5d5-494f-a214-67180925bc9b.png)
+
+
+edit pada conf nginx untuk menambahkan name hash. hilangkan tanda pagar pade server_names_hash_bucket_size
+
+![image](https://user-images.githubusercontent.com/56806850/205072524-663ca1ad-0400-4f93-8c56-bfcda1fc54d3.png)
+![image](https://user-images.githubusercontent.com/56806850/205072588-9407bd6b-de26-4d4f-a0cb-3246867f77d0.png)
+
+lalu test kembali dan ngnix konfigurasi berhasil di settings
+
+![image](https://user-images.githubusercontent.com/56806850/205072680-8efea832-919a-41b3-a913-9d7dff415357.png)
+
+
