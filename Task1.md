@@ -436,3 +436,13 @@ lalu jika ingin memperpanjang sertifikat secara otomatis gunakan command
  ![image](https://user-images.githubusercontent.com/56806850/205090856-caf9abc3-ea5b-4b5a-a54b-da1dd3fd2689.png)
 
  
+<h3>  Koneksi Reverse Proxy Menggunakan IP Private <h3/>
+
+ pada config nginx tinggal rubah dari IP public menjadi IP Private, ini hanya berlaku ketika 2 server berada di 1 jaringan yang sama 
+ 
+ 
+ ![image](https://user-images.githubusercontent.com/56806850/205206196-b4dea5ca-293a-4471-86a7-07eb558fb92b.png)
+![image](https://user-images.githubusercontent.com/56806850/205206233-c208c931-6174-4894-89bf-299130c9e043.png)
+
+ 
+ 
