@@ -381,7 +381,7 @@ lalu untuk backend reverse proxy kita tambahkan pada file yg sama dan tambahkan 
 
 
 
-<h1>***Menginstall SSL pada Web server*** <h1/>
+<h1>Menginstall SSL pada Web server <h1/>
  
  kita menggunakan certbort untuk menginstal SSL pada webserver
 ikuti instruksi pada certbot 
