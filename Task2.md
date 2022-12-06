@@ -83,4 +83,41 @@ groups
 ![image](https://user-images.githubusercontent.com/56806850/205823306-54c3ac83-f27e-4d4b-a80c-f2f18254265d.png)
 
 
+<h2> Deploy Literature Backend </h2>
+
+clone terlebih dahulu repositorinya 
+
+```shell
+git clone https://github.com/dumbwaysdev/literature-backend.git
+```
+![image](https://user-images.githubusercontent.com/56806850/205825389-fe6d7cbb-0038-43b8-a466-efeab0d17d14.png)
+
+
+lalu kita buat terlebih dahulu images backend deengan mempersiapkan `Dockerfile`
+
+
+![image](https://user-images.githubusercontent.com/56806850/205837907-a15ab03a-7015-4af1-b152-1f346adb3ecc.png)
+
+
+```shell
+FROM node:10.0-alpine  
+WORKDIR /app
+COPY . .
+RUN npm install
+EXPOSE 3001
+CMD ["npm","run","start"]
+```
+
+kemudian kita buat imagenya menggunakan ` docker build `
+
+```shell
+docker build --tag literature-be:1.0 .
+```
+
+![image](https://user-images.githubusercontent.com/56806850/205839275-88307225-ef9e-44b9-a571-95e1a6fcc66a.png)
+
+
+
+
+
 
