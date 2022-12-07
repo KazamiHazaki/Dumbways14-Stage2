@@ -100,7 +100,7 @@ lalu kita buat terlebih dahulu images backend deengan mempersiapkan `Dockerfile`
 
 
 ```shell
-FROM node:10.0-alpine  
+FROM node:19.2-alpine  
 WORKDIR /app
 COPY . .
 RUN npm install
@@ -150,6 +150,34 @@ literature_be:
 
 
 ![image](https://user-images.githubusercontent.com/56806850/206169756-ded2c7ef-fa20-4a24-aa73-72c76fe4a08b.png)
+
+
+
+
+<h2> Reverse Proxy NGINX </h2>
+
+setelah install nginx pada server tambahkan folder baru untuk file configuration nya disini menambahkan folder `reverse`
+
+![image](https://user-images.githubusercontent.com/56806850/206171587-a832dee3-6f81-4d7f-8719-b724b947dbc8.png)
+
+
+kemudian buat 2 file untuk reverse proxy.
+
+
+![image](https://user-images.githubusercontent.com/56806850/206171727-f1787e08-2061-4a4b-8ca4-336c833cab3a.png)
+
+untuk informasi installasi nginx bisa melihat pada link berikut.
+
+https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04
+
+
+<h2> mengubah DNS record dengan cloudflare </h2>
+
+untuk mengubah DNS cukup mudah menggunakan cloudflare. syaratnya adalah memiliki domain sendiri. pada tugas ini menggunakan domain `studentdumbways.my.id`
+
+lalu masuk ke dns record dan tambahkan domain baru dengan menghubungkan ke IP public VPS
+
+![image](https://user-images.githubusercontent.com/56806850/206173435-ee0b3ff3-b2d6-4db2-8276-0ebd87b3a83c.png)
 
 
 
