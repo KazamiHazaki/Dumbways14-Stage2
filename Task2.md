@@ -235,3 +235,10 @@ lalu masuk ke dns record dan tambahkan domain baru dengan menghubungkan ke IP pu
 
 setelah melakukan reverse proxy menggunakan nginx maka domain dengan `kelompok2.studentdumbways.my.id` dapat di akses, domain tersebut mengarah ke IP `http://103.189.235.91:3000`
 
+![image](https://user-images.githubusercontent.com/56806850/206178472-a9d9858d-edd9-41ab-80fb-56d9f42810eb.png)
+
+dan untuk API jg sudah bisa di akses dengan domain `api.studentdumbways.my.id`
+
+![image](https://user-images.githubusercontent.com/56806850/206178593-2cec4662-18eb-4d13-beb9-b0a0612310f7.png)
+
+<h2> install SSL Certificate </h2>
