@@ -164,7 +164,8 @@ setelah install nginx pada server tambahkan folder baru untuk file configuration
 kemudian buat 2 file untuk reverse proxy.
 
 
-![image](https://user-images.githubusercontent.com/56806850/206171727-f1787e08-2061-4a4b-8ca4-336c833cab3a.png)
+![image](https://user-images.githubusercontent.com/56806850/206174228-0d14d150-3dfc-43f0-b67c-b017c966a0c7.png)
+
 
 untuk informasi installasi nginx bisa melihat pada link berikut.
 
@@ -180,5 +181,5 @@ lalu masuk ke dns record dan tambahkan domain baru dengan menghubungkan ke IP pu
 ![image](https://user-images.githubusercontent.com/56806850/206173435-ee0b3ff3-b2d6-4db2-8276-0ebd87b3a83c.png)
 
 
-
+setelah melakukan reverse proxy menggunakan nginx maka domain dengan `kelompok2.studentdumbways.my.id` dapat di akses, domain tersebut mengarah ke IP `http://103.189.235.91:3000`
 
