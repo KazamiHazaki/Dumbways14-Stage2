@@ -118,6 +118,21 @@ docker build --tag literature-be:1.0 .
 
 
 
+<h2> Upload images to docker-hub </h2>
 
+
+sebelum mengupload ke docker hub login terlebih dahulu akun docker hub pada server
+
+```ssh
+docker login
+```
+kemudian isi username dan password akun, lalu
+build dengan menggunakan tag username akun docker hub.
+
+```shell
+docker build -t kazamisei98/literature-be:1.3 .
+```
+
+![image](https://user-images.githubusercontent.com/56806850/206129626-c8d685ca-fadd-4b26-a719-9fbb90f71057.png)
 
 
