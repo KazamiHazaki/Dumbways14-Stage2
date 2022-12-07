@@ -1,3 +1,5 @@
+<h1> Deploy Web-app with SSL </h1>
+
 Tugas kali ini adalah membuat 2 server, dengan fungsi server 1 sebagai app server dan server ke 2 sebagai gateway menggunakan nginx digunakan sebagai reverse proxy.
 pada pembuatan server ini platform yg akan saya gunakan adalah AWS EC2 yg merupakan bagian dari  Aws cloud computing.
 
