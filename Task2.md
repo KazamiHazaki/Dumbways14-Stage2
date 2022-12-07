@@ -96,26 +96,74 @@ git clone https://github.com/dumbwaysdev/literature-backend.git
 lalu kita buat terlebih dahulu images backend deengan mempersiapkan `Dockerfile`
 
 
-![image](https://user-images.githubusercontent.com/56806850/205837907-a15ab03a-7015-4af1-b152-1f346adb3ecc.png)
-
+![image](https://user-images.githubusercontent.com/56806850/206176778-0e470a13-3f8e-4cc3-92c0-01ebd7a1b5eb.png)
 
 ```shell
-FROM node:19.2-alpine  
+FROM node:19.2-alpine
 WORKDIR /app
 COPY . .
 RUN npm install
-EXPOSE 3001
-CMD ["npm","run","start"]
+RUN npm install -g sequelize-cli
+RUN npx sequelize db:migrate
+EXPOSE 5000
+CMD ["npm","start"]
 ```
 
 kemudian kita buat imagenya menggunakan ` docker build `
 
 ```shell
-docker build --tag literature-be:1.0 .
+docker build --tag literature-be:1.2 .
 ```
-
 ![image](https://user-images.githubusercontent.com/56806850/205839275-88307225-ef9e-44b9-a571-95e1a6fcc66a.png)
 
+
+
+setelah membuat dockerfile kemudian buat `docker-compose.yml`
+
+![image](https://user-images.githubusercontent.com/56806850/206177283-d75cf601-18ee-44d7-84a6-4d69b9290163.png)
+
+```shell
+version: "3.8"
+services:
+   mysql_db:
+    image: mysql
+    container_name: literature_mysql_db
+    restart: always
+    stdin_open: true
+    ports:
+     - "3306:3306"
+    environment:
+     - MYSQL_ROOT_PASSWORD=root
+     - MYSQL_USER=kel2
+     - MYSQL_PASSWORD=Literature1
+     - MYSQL_DATABASE=literature
+
+    volumes:
+     - "/home/app/database:/var/lib/mysql"
+
+   literature_be:
+    build: .
+    container_name: literature_be
+    ports:
+     - 5000:5000
+    depends_on:
+     - mysql_db
+```
+
+
+lalu kita rubah configurasi pada folder config backend dengan IP public dan user password database sesuai `docker-compose.yml`
+
+
+![image](https://user-images.githubusercontent.com/56806850/206177592-054e3636-3b0e-4104-9b48-73288d38d663.png)
+
+setelah semuanya di persiapkan jalankan dengan menggunakan `docker-compose up -d`
+
+![image](https://user-images.githubusercontent.com/56806850/206177779-c94f904e-b01e-472e-a72b-dc3a4d84135e.png)
+
+jika tidak ada error maka container akan langsung berjalan  check menggunakan
+
+```shell
+docker container ps
 
 
 <h2> Upload images to docker-hub </h2>
@@ -130,10 +178,14 @@ kemudian isi username dan password akun, lalu
 build dengan menggunakan tag username akun docker hub.
 
 ```shell
-docker build -t kazamisei98/literature-be:1.3 .
+docker build -t kazamisei98/literature-be:1.0 .
 ```
 
 ![image](https://user-images.githubusercontent.com/56806850/206129626-c8d685ca-fadd-4b26-a719-9fbb90f71057.png)
+
+![image](https://user-images.githubusercontent.com/56806850/206177057-bee6d27b-02eb-42a6-9f34-d39373011541.png)
+
+```
 
 kemudian update pada docker-compose literature-be, menggunakan images user `kazamisei98`
 
