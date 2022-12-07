@@ -135,4 +135,22 @@ docker build -t kazamisei98/literature-be:1.3 .
 
 ![image](https://user-images.githubusercontent.com/56806850/206129626-c8d685ca-fadd-4b26-a719-9fbb90f71057.png)
 
+kemudian update pada docker-compose literature-be, menggunakan images user `kazamisei98`
+
+```shell
+literature_be:
+    image: kazamisei98/literature-be:1.3
+    container_name: literature_be
+    ports:
+     - 5000:5000
+    depends_on:
+     - mysql_db
+
+```
+
+
+![image](https://user-images.githubusercontent.com/56806850/206169756-ded2c7ef-fa20-4a24-aa73-72c76fe4a08b.png)
+
+
+
 
