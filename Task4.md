@@ -222,3 +222,80 @@ pilih branch yg akan digunakan, pada kali ini kita gunakan branch` main`
 ![image](https://user-images.githubusercontent.com/56806850/206851514-0c6fbd16-237a-4a98-ac29-f0959cb1f0a5.png)
 
 dan kemudian save. Jika Jenkinsfile sudah di tambahkan ke dalam repository. bisa langsung menekan tombol build now. ketika di build kita bisa melihat error di bagian logs sesuai dengan stage yg di jalankan.
+
+
+<h2> Automatic Trigger Build using webhook github </h2>
+
+untuk membuat jenkins automatic build ketika kita push ke repository github, gunakan webhook pada repository dengan cara berikut.
+
+masuk ke settings repository
+
+![image](https://user-images.githubusercontent.com/56806850/206851700-602613bb-db33-4d72-b534-1508d0426f88.png)
+ 
+ kemudian pilih webhook
+ 
+ ![image](https://user-images.githubusercontent.com/56806850/206851714-dc02d92a-5b94-45f7-be9b-e73bb9890a70.png)
+
+tambahkan webhook
+
+![image](https://user-images.githubusercontent.com/56806850/206851727-2fbf16fc-c031-4ed9-b4ef-cd348e2296ca.png)
+
+isi dengan url jenkinns dengan menambahkan `/github-webhook/` pada url jenkins
+
+![image](https://user-images.githubusercontent.com/56806850/206851763-a0734837-5750-4f3a-a4ce-c2c26bd60c96.png)
+
+
+kemudian save. Jenkins sudah automatis Build ketika push repository.
+
+
+<h2> Membuat Notifikasi dengan discord </h2>
+
+
+untuk membuat notifikasi jenkins ke discord, install terlebih dahulu plugin dari jenkins.
+
+![image](https://user-images.githubusercontent.com/56806850/206851834-fe194499-f8ba-4859-9a85-262327762492.png)
+
+
+setelah terintall hubungkan copy terlebih dahulu alamat webhook dari discord untuk mendapatkannya harus memiliki server discord kemudian masuk kedalam pengaturan server lalu ke integration dan tambahkan webhook
+
+![image](https://user-images.githubusercontent.com/56806850/206851944-8d4e3a02-84e8-4cf0-ad96-54479609aaf3.png)
+
+
+![image](https://user-images.githubusercontent.com/56806850/206851955-e5d9c73a-d35a-4a49-8910-e3de713a724b.png)
+
+
+Beri nama bot webhook dan pilih channel yg ingin digunakan unntuk memberi notifikasi,dan copt alamat webhooknya.
+
+![image](https://user-images.githubusercontent.com/56806850/206851991-5d88c85c-3051-4360-a89a-561a7c36e71f.png)
+
+alamat webhook tersebut di letakan ke dalam Jenkinsfile
+
+```shell
+  post {
+    always {
+   discordSend description: 'Jenkins Build', enableArtifactsList: true, footer: '', image: '', link: '', result: '', scmWebUrl: '', showChangeset: true, thumbnail: '', title: 'Jenkins Literature Backend', webhookURL: 'https://discord.com/api/webhooks/1050591484052766740/fX357kf9wiKUhoSlW2aVwa0WnQK0wmMQb4gP7Tulwi6EULxbmwpFzXazPdPRc4L49e4D'
+    }
+  }
+```
+
+
+syntax tersebut bisa di generate menggunakan pipeline syntax
+
+pilih discord send webhook
+
+![image](https://user-images.githubusercontent.com/56806850/206852093-2825341e-e5fd-4781-b656-44ff60c19856.png)
+
+dan masukan alamat webhook 
+
+![image](https://user-images.githubusercontent.com/56806850/206852095-b6bb73ce-7725-4d3c-aaed-f0a5e9e57c11.png)
+
+
+nyalakan ke 2 cheklist tersebut dan generate script
+
+![image](https://user-images.githubusercontent.com/56806850/206852110-1f7038e6-ae88-4710-80c4-7db00591d09b.png)
+
+lalu setelah menambahkan scriot tersebut ke jenkinsfile, secara otomatis setelah pipeline di buuild maka akan muncul notifikasi ke discord. 
+
+![image](https://user-images.githubusercontent.com/56806850/206852134-1bc51549-807b-4951-8cbf-781dcde3703e.png)
+
+
