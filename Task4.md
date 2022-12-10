@@ -71,12 +71,6 @@ jalankan dengan docker compose
 
 
 
-
-
-
-
-
-
 pada saat pertamakali akan diminta untuk memasukan password yang sudah di generate secara random oleh jennkins yg letaknya ada di 
 
 ```shell
@@ -97,71 +91,134 @@ dan jenkins sudah siap untuk di  gunakan
 
 ![image](https://user-images.githubusercontent.com/56806850/206362135-8eb27679-ab41-43d7-965f-4c80f0a75765.png)
 
-setelah installasi jenkins selesai hubungkan akun github dengan jenkins, pertama kita buat API token terlebih dahulu dari github. kemudian sambungkan ke jenkins
-buka github.com kemudian ke settings > Developer Settings > Personal Access Tokens > tokens (classic) > generate new token
+<h3> Menghubungkan Jenkins dengan Server </h3>
 
-![image](https://user-images.githubusercontent.com/56806850/206362651-c00f1d5a-2063-4471-9846-96e702f2c0a3.png)
+sebelum bisa menggunakan jenkins dengan vps server kita hubungkan terlebih dahulu dengan menambahkan ssh-keygen. ssh yg dibutuhkan
 
+- ssh-keygen public key > ditaruh di dalam authorized keys ssh
+- ssh-kegen private key > di letakan pada system account jenkins
 
-kemudian pilih scopes repo:status,public_repo,admin:org_hook.dan generate token
+buat keygen dengan command
 
-![image](https://user-images.githubusercontent.com/56806850/206362962-9cb79c7a-1334-49f8-a1a5-cc88662c036d.png)
+```ssh
+ssh-keygen
+```
+kemudian di enter saja hingga selesai. setelah ssh di buat copy isi dari public key ke dalam file `authorized_keys`
 
+![image](https://user-images.githubusercontent.com/56806850/206850589-e43b6b83-8dc8-466a-bea7-8ec73a02b004.png)
 
-copy token tersebut dan pasang pada jenkins
+lalu kita tambahkan ssh key ke jenkinns
 
-![image](https://user-images.githubusercontent.com/56806850/206363038-7f12d2a1-0085-428b-b276-a966b1f0e57b.png)
+buka user>credentials >
 
-`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`
+![image](https://user-images.githubusercontent.com/56806850/206850635-1a50396e-4aa5-457f-8043-d8916c0eb45c.png)
 
-kembali ke jenkins, klik profile dan tambahkan credentials
+scroll kebawah dan tambah credentials
 
-![image](https://user-images.githubusercontent.com/56806850/206363233-28ca930a-2dde-4abd-8653-51d99426081f.png)
+![image](https://user-images.githubusercontent.com/56806850/206850718-d4e57d78-2c35-4763-8f5d-2c8f3f318670.png)
 
-tambahkan credentials pada global
+pilih credentials baru menggunakan `SSH username with private key`
 
-![image](https://user-images.githubusercontent.com/56806850/206363277-41607cd0-6e0a-4829-86db-5dca1720d677.png)
+![image](https://user-images.githubusercontent.com/56806850/206850734-56ad4e01-da0f-4bce-a80f-c0ccbcbeeeba.png)
 
-kembali ke halaman dashboard jenkins lalu `manage jenkins`> `Configure System` kemudian scroll kebawah cari bagian github.
+isi ID sesuai dengan user login pada VPS yang akan di hubungkan 
 
-![image](https://user-images.githubusercontent.com/56806850/206363864-77aa0d90-fc56-40cf-82a4-58c5bd2c3b8d.png)
-![image](https://user-images.githubusercontent.com/56806850/206364090-2eb8fd8e-9a6b-444a-98b4-4003ac9ede7d.png)
+![image](https://user-images.githubusercontent.com/56806850/206850848-7f18b37d-2781-4df0-a2d7-6cd4ed5bd533.png)
 
-lalu tambahkan github server
+isi private key dengan ssh private key yang sudah dibuat pada vps
 
-![image](https://user-images.githubusercontent.com/56806850/206364132-d7d6172f-7a24-4387-80f7-a42071ac3baf.png)
+![image](https://user-images.githubusercontent.com/56806850/206850894-c618e363-7979-4a05-8f78-c855bc6d1606.png)
 
-kemudian pilih credentials 
+isi private key terdapat pada direktori ssh secara default dan tanpa file type `.pub`
 
-![image](https://user-images.githubusercontent.com/56806850/206364174-ea845269-0a28-4903-8fb1-88097cd14108.png)
+![image](https://user-images.githubusercontent.com/56806850/206850912-44bbc212-0614-4706-97f6-2f74eee961d4.png)
 
-pilih kunci yg sudah di buat sebelumnya,kemudian test connection, jika berhasil akan muncul username github. kemudian di save
+copy isi private key dan masukkan kedalam jenkins. setelah ktia menambahkan user credentials, download pluginn ssh pada jenkins agar bisa menggunakan koneksi ssh.
 
+kembali ke dashboard>manage jenkins > Plugin manager pilih bagian available plugins untuk mendonwload plugin  cari plugin bernama `ssh agent plugin`
 
-![image](https://user-images.githubusercontent.com/56806850/206364267-cb8e0444-f5a8-4678-a0be-2a57c11f571b.png)
+![image](https://user-images.githubusercontent.com/56806850/206851212-dc70a768-a68a-499d-93d5-61af3bb85aa3.png)
 
-kembali ke dashboard dan new item, pilih pipeline
-
-![image](https://user-images.githubusercontent.com/56806850/206364458-39a0df14-d5f3-4635-8e58-896aef72c5c1.png)
-
-pilih github project dan masukan link github
-
-![image](https://user-images.githubusercontent.com/56806850/206364761-2867f78a-7e13-495d-ac2c-531c4a2414b8.png)
-
-kemudian centang `Github hook trigger for GITScm polling`
-
-![image](https://user-images.githubusercontent.com/56806850/206364822-0c4d059e-a4de-4484-8240-faf191b4faf8.png)
-
-kemudian pada bagian pipeline pilih `pipeline script from SCM` dan SCM menggunakan `git`
-
-![image](https://user-images.githubusercontent.com/56806850/206365011-37769bce-ada4-4650-b618-21f0ea1820db.png)
+![image](https://user-images.githubusercontent.com/56806850/206851176-b8f30e46-3027-4e18-bf9c-119f61d81b9a.png)
 
 
 
 
 
+<h3> Membuat Jenkinsfile </h3>
+
+untuk membuat pipeline di butuhkan file bernama `Jenkinsfile` gunakan nano untuk membuat  file
+
+```shell
+def secret = 'app'
+def server = 'app@103.189.235.91'
+def directory = 'literature-backend2'
+def branch = 'main'
 
 
 
+pipeline{
+    agent any
+
+    stages{
+        stage ('delete docker & git pull'){
+            steps{
+                sshagent([secret]) {
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    docker-compose down
+                    docker system prune -f
+                    git pull origin ${branch}
+                    exit
+                    EOF"""
+                }
+            }
+        }
+        stage ('docker build'){
+            steps{
+                sshagent([secret]) {
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    docker-compose build
+                    exit
+                    EOF"""
+                }
+            }
+        }
+        stage ('docker up'){
+            steps{
+                sshagent([secret]) {
+                    sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
+                    cd ${directory}
+                    docker-compose up -d
+                    exit
+                    EOF"""
+                }
+            }
+        }
+    }
+}
+```
+
+setelah membuat jenkinsfile, file ini harus di upload ke dalam repository yg ingin di hubungkan ke jenkins.
+<h3> Membuat Pipeline </h3>
+
+untuk membuat pipelie kembali ke dashboard kemudian pilih new item dan pilih pipeline, berinama pipeline 
+
+![image](https://user-images.githubusercontent.com/56806850/206851394-0a8adb5e-4d93-486c-8ddf-2bc6a484c4fc.png)
+
+scroll kebagian bawah nyalakan GITScm
+
+![image](https://user-images.githubusercontent.com/56806850/206851438-314e5557-6e15-44d5-9b73-085d68d5fa26.png)
 
 
+rubah definition menjadi `pipeline script SCM` dan SCM menjadi  `git` dan tambahkan link repository yang akan di hubungkan dengan jenkins
+
+![image](https://user-images.githubusercontent.com/56806850/206851525-e2f25392-6b98-4712-8f37-e018967bd9c6.png)
+
+
+pilih branch yg akan digunakan, pada kali ini kita gunakan branch` main`
+
+![image](https://user-images.githubusercontent.com/56806850/206851514-0c6fbd16-237a-4a98-ac29-f0959cb1f0a5.png)
+
+dan kemudian save. Jika Jenkinsfile sudah di tambahkan ke dalam repository. bisa langsung menekan tombol build now. ketika di build kita bisa melihat error di bagian logs sesuai dengan stage yg di jalankan.
