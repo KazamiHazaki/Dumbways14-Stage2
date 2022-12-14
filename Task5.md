@@ -230,9 +230,29 @@ docker compose exec nginx certbot --nginx -d dashboard.aziz.studentdumbways.my.i
 
 dan ke 3 website sudah bisa di akses menggunakan HTTPS dan sudah di reverse proxy 
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/56806850/207625845-31e9fee8-1d0c-485a-833b-440dbdd8a241.png)
 
 
 
+setelah meengaktifkan SSL prometheus data source harus di rubah juga 
+
+![image](https://user-images.githubusercontent.com/56806850/207626351-913811cb-b354-4ee3-a53d-1a257e346f41.png)
+
+
+dan tambahkan `proxy_set_header` pada conf nginx
+
+```shell
+proxy_http_version  1.1;
+        proxy_cache_bypass  $http_upgrade;
+
+        proxy_set_header Upgrade           $http_upgrade;
+        proxy_set_header Connection        "upgrade";
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host  $host;
+        proxy_set_header X-Forwarded-Port  $server_port;
+```
 
 
