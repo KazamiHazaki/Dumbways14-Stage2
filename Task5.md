@@ -150,5 +150,89 @@ setelah selesai mengatur kita save panel.
 <h2> Panel RAM Usage </h2> 
 
 
+<h2> Install SSL Certificate with NGINX on Docker  </h2> 
+
+
+buat Dockerfile terlebih dahulu dengan isi nginx dan install certbot
+
+```shell
+FROM nginx
+
+#install certbot
+RUN apt-get update && apt-get install -y python3-certbot-nginx
+
+
+```
+
+kemudian tambahkan pada docker compose
+
+
+```shell
+  nginx: 
+    build: .
+    container_name: nginx
+    stdin_open: true
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /home/kel2/nginx/aziz.conf:/etc/nginx/conf.d/aziz.conf
+      
+```
+
+dan isi dari `aziz.conf` reverse adalah seperti berikut 
+
+```shell
+server {
+    server_name node-exporter.aziz.studentdumbways.my.id;
+
+    location / {
+        proxy_pass http://185.135.137.176:9100;
+    }
+}
+
+
+server {
+    server_name prom.aziz.studentdumbways.my.id;
+
+    location / {
+        proxy_pass http://185.135.137.176:9090;
+    }
+}
+
+server {
+    server_name dashboard.aziz.studentdumbways.my.id;
+
+    location / {
+        proxy_pass http://185.135.137.176:3000;
+    }
+}
+
+
+```
+
+conf ini terleteak di folder `~/nginx` kemudian di tembak ke container `/etc/nginx/conf.d/aziz.conf` karena terletak di conf.d kita tidak perlu menambahkan inlcude pada `nginx.conf`  setelah selesai mensettigns kemudian kita bisa lanjut menggunakan docker compose
+
+setelah docker compose kita lanjutkan dengan install ssl menggunakan certbot. karena certbot sudah di install kita bisa langsung mengeksekusi certbot melalui docker container nginx 
+
+sebelum itu kita sudah mengconfigurasi dns record pada cloudflare 
+
+![image](https://user-images.githubusercontent.com/56806850/207621180-580eacde-8eba-4374-af7c-66c578ad8021.png)
+
+
+```shell
+docker compose exec nginx certbot --nginx -d dashboard.aziz.studentdumbways.my.id -d node-exporter.aziz.studentdumbways.my.id -d prom.aziz.studentdumbways.my.id  --agree-tos --email alluka.zoldyck999@gmail.com --no-eff-email
+
+```
+![image](https://user-images.githubusercontent.com/56806850/207610261-2f945ef7-2794-4b85-ae7c-a7936167e122.png)
+
+
+dan ke 3 website sudah bisa di akses menggunakan HTTPS dan sudah di reverse proxy 
+
+![Uploading image.png…]()
+
+
+
 
 
