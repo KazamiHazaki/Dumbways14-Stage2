@@ -17,19 +17,31 @@ sudo apt install ansible
 
 setelah install buatlah file ansible.cfg dan Inventoro
 
-```yml
+
+isi dari ansible.cfg
+
+```shell
 [defaults]
 inventory = Inventory
 private_key_file = sshkey.pem
 ```
 
-isi dari ansible 
 
+isi Inventory merupakan IP yg ingin di manage menggunakan ansible 
 
 ```shell
+[appserver]
+103.187.146.241 ansible_user=aziz
+
+[gateway]
+103.187.146.54 ansible_user=aziz
 
 ```
 
+
+pertama membuat playbookk base, berisi untuk menginstall docker pada semua server
+
+`base-playbook.yml`
 ```shell
 ---
   - hosts: all
@@ -84,5 +96,8 @@ jika tidak ada error maka bisa langusng jalankan yml nya tanpa menggunakan optio
 ```shell
 ansible-playbook base-playbook.yml
 ```
+
+
+
 
 
