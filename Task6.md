@@ -97,7 +97,14 @@ jika tidak ada error maka bisa langusng jalankan yml nya tanpa menggunakan optio
 ansible-playbook base-playbook.yml
 ```
 
+![image](https://user-images.githubusercontent.com/56806850/207884577-7a556250-e58c-47a5-880e-51afaa230212.png)
 
 
+installasi selesai. check kedua server menggunakan ansible
+
+![image](https://user-images.githubusercontent.com/56806850/207884997-fa4167a8-a1f7-42bc-a5ae-a3f865424dc5.png)
 
 
+```shell
+ansible all -a "docker --version" -u aziz
+```
