@@ -7,6 +7,12 @@
 
 ![](https://image.scribehow-prod.com/vR1eJX3v07dGVwFfUeR288H5EmUjeCZKD8TRaIlz0ME/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:237:280/wm:0.8:nowe:255:132:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1LzgyM2UzOWY0LWM2ZWQtNDE4My1hNTlhLWRiYTdiZTU2NGYxOC9hc2NyZWVuc2hvdC5qcGVn)
 
+
+```shell
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+```
 **2. Kemudian Paste script install di atas ke terminal ubuntu**
 
 ![](https://image.scribehow-prod.com/gzKUcwUWLYKEG6MJCToGepJ0rAUT3ONm8lRT7Tm4pms/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:125:0/wm:0.8:nowe:255:20:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2Q1ZDk3MGRiLWVhMTMtNGZlMi1iMGVlLTJkZjFhZGY0YjEyMi91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
