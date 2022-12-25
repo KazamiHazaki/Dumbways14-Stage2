@@ -7,12 +7,6 @@
 
 ![](https://image.scribehow-prod.com/vR1eJX3v07dGVwFfUeR288H5EmUjeCZKD8TRaIlz0ME/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:237:280/wm:0.8:nowe:255:132:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1LzgyM2UzOWY0LWM2ZWQtNDE4My1hNTlhLWRiYTdiZTU2NGYxOC9hc2NyZWVuc2hvdC5qcGVn)
 
-
-```shell
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-
-```
 **2. Kemudian Paste script install di atas ke terminal ubuntu**
 
 ![](https://image.scribehow-prod.com/gzKUcwUWLYKEG6MJCToGepJ0rAUT3ONm8lRT7Tm4pms/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:125:0/wm:0.8:nowe:255:20:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2Q1ZDk3MGRiLWVhMTMtNGZlMi1iMGVlLTJkZjFhZGY0YjEyMi91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
@@ -90,6 +84,32 @@ kubectl get  nodes
 minikube status -p <nama-node>
 ```
 ![](https://image.scribehow-prod.com/rzq6kTqIa1PZsLLiJlsBL7IhJehgGJnj_xrRjbUVA48/zoom:0.9135399673735726/enlarge:true/crop:613:342:nowe:0:0/wm:0.8:nowe:589:248:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2RjZGE0NDg0LTc4ZDEtNGE5Ny1iMDU1LTAyMTU0Y2JiNzg3YS91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
+
+
+# Install nginx in kubectl with porf foward
+
+
+```shell
+kubectl create deployment nginx  --image=nginx
+kubectl expose deployment nginx  --type=NodePort --port=80
+```
+  
+**1. Jalankan perintah di atas untuk menginstall nginx dan mengexpose port 80**
+
+![](https://image.scribehow-prod.com/ZtrorShPzFd_adCZYPKe1JSzbO0KWsI9NpFyb4Zikqc/zoom:0.7506702412868632/enlarge:true/crop:746:93:nowe:0:0/wm:0.8:nowe:239:49:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1LzZjNjdkZWViLTc0MzMtNDFiMi04MmUyLTVlNTY1MDQxNTJmMy91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
+
+**2. setelah nginx berjalan lalu kita port foward port tersebut ke port 3001**
+
+  
+```shell
+kubectl port-forward service/nginx 3001:80 &
+```
+  
+![](https://image.scribehow-prod.com/IO767kDxl-0ACbKJ2cXJWikOqzyZQ89FozjgJSR8SFA/zoom:0.7506702412868632/enlarge:true/crop:746:370:nowe:31:0/wm:0:nowe:246:3:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2I3MTdlNDQyLWNkZjktNGM4Yy1iMmY0LWRjYmFmYTc3ZDI3MC91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
+
+dan Nginx sudah bisa di akses melalui port 3001
+  
+  ![image](https://user-images.githubusercontent.com/56806850/209463570-fe02fa0d-e4ef-4293-82ea-4281abfa8042.png)
 
 
 
