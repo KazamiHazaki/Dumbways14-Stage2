@@ -62,25 +62,23 @@ minikube start --nodes 2  -p <node-name>
 
 ![](https://image.scribehow-prod.com/V0TrMjFD0S98mSN5_50MnIlm3bIWFcWgJqMCeOn6CLg/zoom:0.9688581314878892/enlarge:true/crop:578:323:nowe:0:0/wm:0:nowe:228:-93:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1LzMzNGZhZTM5LWYxYTktNDkwZS04ZmUxLTgzNTcyZmY1NmU5OC91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
 
-**4. Click here:**
+**4. Kemudian Tunggu proses**
 
 ![](https://image.scribehow-prod.com/rAasJKzdYsbIm1m9TeiLq1GhyUuCPy6QDumYUjQ4xMw/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:101:0/wm:0.8:nowe:255:-63:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2RiZDc0NzE2LThlODEtNGZkMC04YWE0LWI1ODk4ZTBiZTcyNy91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
 
-**5. Click here:**
 
-![](https://image.scribehow-prod.com/W5pmoR9F5tQqlHGqtjd1qYDSMB9JbEaynyyn9yWNZck/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:104:0/wm:0.8:nowe:255:-180:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2IwODA3NTNmLTk4MjUtNGNjYi1hMWRmLWUwMjczMjRkZDk1YS91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
-
-**6. Type "kubectl get nodes [[enter]]"**
+**6. cek nodes worker dan master menggunakan command**
+```shell 
+kubectl get  nodes
+```
 
 ![](https://image.scribehow-prod.com/mw7p-qIAhojt584v3qI-wsXZETLoHNXZ2h4wodUZoOA/zoom:0.7506702412868632/enlarge:true/crop:746:420:nowe:96:52/wm:0:nowe:255:-36:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2Q5NDAyNGEyLTVjNmItNGZlYS04YjgwLWNkMjA4MTQ0NjhhMy91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
 
-**7. Click here:**
+
 
 ![](https://image.scribehow-prod.com/s_2_KVIKfjz1L5owG0JqCkKyrQubY4pm3Y1L9OQHjj4/zoom:1.064638783269962/enlarge:true/crop:526:293:nowe:0:0/wm:0.8:nowe:169:-217:0.17857142857142858/aHR0cHM6Ly9jb2xvbnktcmVjb3JkZXIuczMuYW1hem9uYXdzLmNvbS9maWxlcy8yMDIyLTEyLTI1L2U3ZWJjOTM5LTdhMmItNDUxYy04ZTc0LWE1ZjYzOGE2NWVjZi91c2VyX2Nyb3BwZWRfc2NyZWVuc2hvdC5qcGVn)
 
-**8. cek status node dengan menggunakan 
-
-**
+**7. cek status node dengan menggunakan**
 
 ```shell
 minikube status -p <nama-node>
